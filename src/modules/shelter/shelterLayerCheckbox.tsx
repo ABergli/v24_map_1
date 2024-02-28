@@ -7,7 +7,7 @@ import { shelterStyle } from "./shelterFeature";
 
 const shelterLayer = new VectorLayer({
   source: new VectorSource({
-    url: "/shelter.geojson",
+    url: "./shelter.json",
     format: new GeoJSON(),
   }),
   style: shelterStyle,
