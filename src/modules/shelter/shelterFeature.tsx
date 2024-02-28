@@ -8,24 +8,17 @@ export type ShelterFeature = {
 } & Feature<Point>;
 
 export interface ShelterProperties {
-  navn: string;
-  antall_elever: number;
-  antall_ansatte: number;
-  laveste_trinn: number;
-  hoyeste_trinn: number;
-  eierforhold: "Offentlig" | "Privat";
-  kommunenummer: string;
+  romnr: number;
+  plasser: number;
+  adresse: string;
 }
 
 export const shelterStyle = (feature: FeatureLike) => {
   const shelter = feature.getProperties() as ShelterProperties;
   return new Style({
     image: new Circle({
-      radius: 2 + shelter.antall_elever / 150,
-      fill:
-        shelter.eierforhold === "Offentlig"
-          ? new Fill({ color: "blue" })
-          : new Fill({ color: "purple" }),
+      radius: 2 + shelter.plasser / 300,
+      fill: new Fill({ color: "blue" }),
       stroke: new Stroke({ color: "white" }),
     }),
   });
@@ -35,15 +28,12 @@ export const activeShelterStyle = (feature: FeatureLike) => {
   const shelter = feature.getProperties() as ShelterProperties;
   return new Style({
     image: new Circle({
-      radius: 2 + shelter.antall_elever / 150,
-      fill:
-        shelter.eierforhold === "Offentlig"
-          ? new Fill({ color: "blue" })
-          : new Fill({ color: "purple" }),
-      stroke: new Stroke({ color: "white", width: 3 }),
+      radius: 2 + shelter.plasser / 300,
+      fill: new Fill({ color: "blue" }),
+      stroke: new Stroke({ color: "white" }),
     }),
     text: new Text({
-      text: shelter.navn,
+      text: shelter.adresse,
       font: "bold 14px sans-serif",
       stroke: new Stroke({ color: "white", width: 2 }),
       fill: new Fill({ color: "black" }),

@@ -10,10 +10,6 @@ import { KommuneLayerCheckbox } from "../kommune/kommuneLayerCheckbox";
 import { SchoolLayerCheckbox } from "../school/schoolLayerCheckbox";
 import { ShelterLayerCheckbox } from "../shelter/shelterLayerCheckbox";
 import { DistrictLayerCheckbox } from "../district/districtLayerCheckbox";
-import { KommuneAside } from "../kommune/kommuneAside";
-import { SchoolAside } from "../school/schoolAside";
-import { ShelterAside } from "../shelter/shelterAside";
-import { DistrictAside } from "../district/districtAside";
 
 export function Application() {
   function handleFocusUser(e: React.MouseEvent) {
