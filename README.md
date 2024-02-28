@@ -10,10 +10,8 @@ Team members
 
 https://kristiania-kws2100-2024.github.io/kws2100-publishing-a-map-application-SSrirabai/
 
-https://kristiania-kws2100-2024.github.io/kws2100-publishing-a-map-application-ABergli/
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen)](https://kristiania-kws2100-2024.github.io/kws2100-publishing-a-map-application-ABergli/)
-
 
 The goal of this assignment is to verify that you're able to deploy a working web application:
 
