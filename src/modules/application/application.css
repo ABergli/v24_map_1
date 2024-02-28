@@ -1,45 +1,188 @@
 * {
-  margin: unset;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html,
+body,
 #root {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  height: 100dvh;
+  height: 100%;
+  width: 100%;
 }
 
-nav {
-  display: flex;
-  gap: 1em;
-}
-
+/* Layout with grid */
 main {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr 0px;
+  grid-template-rows: 1fr;
+  height: calc(100vh - 50px);
 }
 
 main aside {
-  display: grid;
+  /*add display none to solve that map get smaller when no emergency shelter stated*/
+  display: none;
   grid-template-columns: 0;
-  transition: grid-template-columns 0.5s ease-in-out;
+  /*transition: grid-template-columns 0.5s ease-in-out;*/
   overflow-x: clip;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
+  /*max-height: 100vh;*/
 }
 
-main aside.visible {
-  grid-template-columns: auto;
+.list-group-item:hover {
+  background-color: #007bff;
+  color: white;
 }
 
-main aside > * {
-  padding: 0.5rem;
-  min-width: 25ch;
+.map-container {
+  height: 100%;
+  width: 100%;
 }
 
-main aside ul {
+/* Set HTML and Body to use the whole screen */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* Set the root container to use the whole screen */
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #91c5fd; /* Change background color */
+}
+
+.navbar-brand {
+  color: #fff; /* Change text color */
+}
+
+.navbar-toggler-icon {
+  color: #fff; /* Change toggler icon color */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Adjust margin between items */
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0; /* Remove margin from the last item */
+}
+
+/* Button Styles */
+.btn {
+  margin-right: 10px; /* Adjust margin between buttons */
+}
+
+/* Checkbox Styles */
+.form-check-label {
+  color: #000; /* Change label color */
+}
+
+/* Map Container Styles */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 56px); /* Adjust height to exclude navbar height */
+}
+
+.ol-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Overlay Styles */
+.ol-overlaycontainer {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ol-zoom,
+.ol-rotate {
+  position: absolute;
+  z-index: 1; /* Ensure zoom and rotate controls appear above the map */
+  top: 10px; /* Adjust top position */
+  left: 10px; /* Adjust left position */
+}
+
+.ol-attribution {
+  position: absolute;
+  z-index: 1; /* Ensure attribution appears above the map */
+  bottom: 10px; /* Adjust bottom position */
+  left: 10px; /* Adjust left position */
+  color: #fff; /* Change attribution text color */
+}
+
+/* Tooltip Styles */
+.tooltip {
+  position: absolute;
+  z-index: 2; /* Ensure tooltip appears above the map */
+  background-color: #fff; /* Change tooltip background color */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide tooltip by default */
+.tooltip {
+  display: none;
+}
+
+/* Show tooltip when needed */
+.tooltip.active {
+  display: block;
+}
+
+.btn {
+  background-color: #10129a; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  font-size: 16px; /* Adjust font size */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.btn:hover {
+  background-color: #0d8bf9; /* Darker blue on hover */
+}
+
+.navbar-brand {
+  font-size: 24px; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  color: #333; /* Dark gray text color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Add transition effect */
+}
+
+.navbar-brand:hover {
+  color: #555; /* Darker gray on hover */
+}
+
+.nav-item {
+  /* Add a padding to create space around the text */
+  padding: 8px 16px;
+  /* Set cursor to pointer to indicate interactivity */
   cursor: pointer;
+  /* Add transition for smooth effect */
+  transition: font-size 0.3s ease;
 }
 
-main aside li.active {
-  font-weight: bold;
+.nav-item:hover {
+  /* Increase font size on hover */
+  font-size: 16px;
 }
