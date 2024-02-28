@@ -7,7 +7,7 @@ import { useLayer } from "../map/useLayer";
 const districtLayer = new VectorLayer({
   className: "district",
   source: new VectorSource({
-    url: "/district.geojson",
+    url: "./district.json",
     format: new GeoJSON(),
   }),
 });
